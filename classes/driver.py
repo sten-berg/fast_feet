@@ -1,37 +1,32 @@
-class Driver():
-    def __init__(self, name, team, reaction, cornering, braking, accelerating, competetivness):
+from car import Car
+from textwrap import dedent
+
+class Driver(Car):
+    def __init__(self, name, skill, competetivness, constructor, power, age, compound):
+        Car.__init__(self, constructor, power, age, compound)
         self.name = name
-        self.team = team
-        self.reaction = reaction
-        self.cornering = cornering
-        self.braking = braking
-        self.accelerating = accelerating
+        self.skill = skill
         self.competetivness = competetivness
 
-    def __repr__(self) -> str:
-        return "Name: " + str(self.name) + "\nTeam: " + str(self.team) + "\nReaction: " + str(self.reaction) + "\nCornering: " + str(self.cornering) + "\nBraking: " + str(self.braking) + '\nAccelerating: ' + str(self.accelerating) + '\nCompetetivness: '  + str(self.competetivness)
+    def __repr__(self):
+        return dedent(f"""
+            Name: {self.getName()}
+            Skill: {self.getSkill()}
+            Competetivness: {self.getCompetetivness()}
+            Constructor: {Car.getConstructorName(self)}
+            Engine Power: {Car.getEnginePower(self)}
+            Tyre Age: {Car.getTyreAge(self)}
+            Tyre Compound: {Car.getTyreCompound(self)}""")
 
     def getName(self):
         return self.name
         
-    def getTeam(self):
-        return self.team
-        
-    def getReaction(self):
-        return self.reaction
-        
-    def getCornering(self):
-        return self.cornering
-        
-    def getBraking(self):
-        return self.braking
-        
-    def getAccelerating(self):
-        return self.accelerating
-        
+    def getSkill(self):
+        return self.skill
+
     def getCompetetivness(self):
         return self.competetivness
 
-testName = Driver("Test Name", "Red Bull", 100, 100, 100, 100, 100)
+testName = Driver('Test Name', 100, 77, 'Red Bull', 56, 2, 'Hard')
 
 print(testName)
