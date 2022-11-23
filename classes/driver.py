@@ -1,21 +1,21 @@
 class Driver():
-    def __init__(self, name, car, reaction, cornering, braking, accelerating, competetivness):
+    def __init__(self, name, team, reaction, cornering, braking, accelerating, competetivness):
         self.name = name
-        self.car = car
+        self.team = team
         self.reaction = reaction
         self.cornering = cornering
         self.braking = braking
         self.accelerating = accelerating
         self.competetivness = competetivness
 
-    def __repr__(self):
-        return self.name + " drives for " + self.car + "!"
+    def __repr__(self) -> str:
+        return "Name: " + str(self.name) + "\nTeam: " + str(self.team) + "\nReaction: " + str(self.reaction) + "\nCornering: " + str(self.cornering) + "\nBraking: " + str(self.braking) + '\nAccelerating: ' + str(self.accelerating) + '\nCompetetivness: '  + str(self.competetivness)
 
     def getName(self):
         return self.name
         
-    def getCar(self):
-        return self.car
+    def getTeam(self):
+        return self.team
         
     def getReaction(self):
         return self.reaction
@@ -31,3 +31,7 @@ class Driver():
         
     def getCompetetivness(self):
         return self.competetivness
+
+testName = Driver("Test Name", "Red Bull", 100, 100, 100, 100, 100)
+
+print(testName)
