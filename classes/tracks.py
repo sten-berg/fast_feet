@@ -1,7 +1,8 @@
 class Track():
-    def __init__(self, downfall, wind):
+    def __init__(self, downfall, wind, trackTemperature):
         self.downfall = downfall
         self.wind = wind
+        self.trackTemperature = trackTemperature
 
 class Street(Track):
     def __init__(self, downfall, wind, width):
