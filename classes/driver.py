@@ -2,11 +2,14 @@ from car import Car
 from textwrap import dedent
 
 class Driver(Car):
-    def __init__(self, name, skill, competetivness, constructor, power, age, compound):
-        Car.__init__(self, constructor, power, age, compound)
+    def __init__(self, name, skill, competetivness, constructor, speed, age, compound, weight):
+        Car.__init__(self, constructor, speed, age, compound)
         self.name = name
         self.skill = skill
         self.competetivness = competetivness
+        self.position = 0
+        self.lap = 0
+        self.lapTime = 0
 
     def __repr__(self):
         return dedent(f"""
@@ -14,7 +17,7 @@ class Driver(Car):
             Skill: {self.getSkill()}
             Competetivness: {self.getCompetetivness()}
             Constructor: {Car.getConstructorName(self)}
-            Engine Power: {Car.getEnginePower(self)}
+            Speed: {Car.getSpeed(self)}
             Tyre Age: {Car.getTyreAge(self)}
             Tyre Compound: {Car.getTyreCompound(self)}""")
 
@@ -27,6 +30,25 @@ class Driver(Car):
     def getCompetetivness(self):
         return self.competetivness
 
-testName = Driver('Test Name', 100, 77, 'Red Bull', 56, 2, 'Hard')
+    def getPosition(self):
+        return self.position
 
-print(testName)
+    def setPosition(self, position):
+        self.position += position
+
+    def getLap(self):
+        return self.lap
+
+    def setLap(self):
+        self.lap += 1
+    
+    def getLapTime(self):
+        return self.lapTime
+
+    def setLapTime(self, time):
+        self.lapTime = time
+
+maxVerstappen = Driver('Max Verstappen', 100, 77, 'Red Bull', 56, 2, 'Hard', 850)
+danielRicciardo = Driver('Daniel Ricciardo', 100, 99, 'McLaren',20, 0, 'Soft', 830)
+drivers = [maxVerstappen, danielRicciardo]
+#print(drivers[0])
