@@ -23,7 +23,7 @@ def driverStatus():
         print(str(driver.getName()) + ' is on lap: ' + str(driver.getLap()))
         print(str(driver.getName()) + ' is on position: ' + str(driver.getPosition()))
 
-def initRace():
+def init():
     
     while True:
         time.sleep(1)
@@ -34,4 +34,4 @@ def initRace():
     
 
 
-initRace()
+init()
