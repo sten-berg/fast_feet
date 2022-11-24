@@ -29,18 +29,15 @@ class Tyre():
             raise ValueError("Entered value is not one of: \"Soft\", \"Medium\", \"Hard\", \"Intermediate\", \"Rain\"")
 
 class Engine():
-    def __init__(self, power):
-        self.power = power
+    def __init__(self):
+        pass
 
     def __repr__(self):
-        return "This is the engine's power: " + str(self.power)
-
-    def getEnginePower(self):
-        return self.power
+        pass
 
 class Constructor(Engine):
-    def __init__(self, constructor, power):
-        Engine.__init__(self, power)
+    def __init__(self, constructor):
+        Engine.__init__(self)
         self.constructor = constructor
     
     def __repr__(self):
@@ -50,12 +47,14 @@ class Constructor(Engine):
         return self.constructor
         
 class Car(Constructor, Tyre):
-    def __init__(self, constructor, power, age, compound):
-        Constructor.__init__(self, constructor, power)
+    def __init__(self, constructor, speed, age, compound):
+        Constructor.__init__(self, constructor)
         Tyre.__init__(self, age, compound)
+        self.speed = speed
 
     def __repr__(self) -> str:
-        return Constructor.__repr__(self) + '\n' + Engine.__repr__(self) + '\n' + Tyre.__repr__(self)
+        return Constructor.__repr__(self) + '\n' + Tyre.__repr__(self)
 
-#redBull = Car("Red Bull", 5, 10, "Soft")
-#print(redBull)
+    def getSpeed(self):
+        return self.speed
+
